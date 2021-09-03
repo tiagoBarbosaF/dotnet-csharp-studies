@@ -1,9 +1,8 @@
-﻿using BackendMobileToDoAPI.Interfaces;
-using BackendMobileToDoAPI.Models;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+
+using BackendMobileToDoAPI.Interfaces;
+using BackendMobileToDoAPI.Models;
 
 namespace BackendMobileToDoAPI.Services
 {
@@ -20,22 +19,22 @@ namespace BackendMobileToDoAPI.Services
             get { return _todoList; }
         }
 
-        public bool DoesItemExist(string id )
+        public bool DoesItemExists(string id)
         {
             return _todoList.Any(item => item.Id == id);
         }
 
-        public TodoItem Find(string id )
+        public TodoItem Find(string id)
         {
             return _todoList.FirstOrDefault(item => item.Id == id);
         }
 
-        public void Insert(TodoItem item )
+        public void Insert(TodoItem item)
         {
             _todoList.Add(item);
         }
 
-        public void Update(TodoItem item )
+        public void Update(TodoItem item)
         {
             var todoItem = this.Find(item.Id);
             var index = _todoList.IndexOf(todoItem);
@@ -43,7 +42,12 @@ namespace BackendMobileToDoAPI.Services
             _todoList.Insert(index, item);
         }
 
-        public void Delete(string id )
+        public void Delete(string id)
+        {
+            _todoList.Remove(this.Find(id));
+        }
+
+        private void InitializeData()
         {
             _todoList = new List<TodoItem>();
 

@@ -1,18 +1,16 @@
-﻿using BackendMobileToDoAPI.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+
+using BackendMobileToDoAPI.Models;
 
 namespace BackendMobileToDoAPI.Interfaces
 {
-    public class ITodoRepository
+    public interface ITodoRepository
     {
-        bool DoesItemExists( string id );
+        bool DoesItemExists(string id);
         IEnumerable<TodoItem> All { get; }
-        TodoItem Find( string id );
-        void Insert( TodoItem item );
-        void Update( TodoItem item );
-        void Delete( string id );
+        TodoItem Find(string id);
+        void Insert(TodoItem item);
+        void Update(TodoItem item);
+        void Delete(string id);
     }
 }
