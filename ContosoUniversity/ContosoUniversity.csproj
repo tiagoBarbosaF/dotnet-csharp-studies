@@ -9,6 +9,7 @@
     <None Remove="Pages\Students\" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Pages\Departments" />
     <Folder Include="Pages\Students\" />
   </ItemGroup>
   <ItemGroup>
